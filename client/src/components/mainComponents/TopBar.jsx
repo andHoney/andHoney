@@ -13,7 +13,7 @@ const TopBarStyled = styled.div`
 const TitleContainer = styled.div`
   position: absolute;
   left: 0px;
-`
+` 
 
 const MenuContainer = styled.div`
   position: absolute;
@@ -28,7 +28,7 @@ const TopBar = (props) => {
         <h1>{'&  h o n e y'}</h1>
       </TitleContainer>
       <MenuContainer>
-        <MenuButton pages={props.pages}></MenuButton>
+        <MenuButton categories={props.categories}></MenuButton>
       </MenuContainer>
     </TopBarStyled>
   )

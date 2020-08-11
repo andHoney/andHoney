@@ -21,9 +21,11 @@ const MenuButton = (props) => {
     setShow(false);
   }
   
-  const titles = props.pages.map((title, i) => {
+  const cats = props.categories.map((cat, i) => {
     return (
-      <p key={i}>{title}</p>
+      <li key={i}>
+        <Link onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</Link>
+      </li>
       )
     })
     
@@ -34,7 +36,7 @@ const MenuButton = (props) => {
       
       { show && (
         <MenuModal onClick={closeMenu} >
-            <MenuText pages={props.pages}>{
+            <MenuText categories={props.categories}>{
               //titles
             }
               <nav>
@@ -42,12 +44,13 @@ const MenuButton = (props) => {
                   <li>
                     <Link onClick={closeMenu} to="/">Home</Link>
                   </li>
-                  <li>
+                  {cats}
+                  {/* <li>
                     <Link onClick={closeMenu} to="/pants">Pants</Link>
                   </li>
                   <li>
                     <Link onClick={closeMenu} to="/tops">Tops</Link>
-                  </li>
+                  </li> */}
                 </ul>
               </nav>
             </MenuText>

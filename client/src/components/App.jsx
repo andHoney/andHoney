@@ -6,8 +6,10 @@ import styled from 'styled-components';
 import TopBar from './mainComponents/TopBar.jsx';
 import Categories from './mainComponents/Categories.jsx';
 import NewArrivals from './mainComponents/NewArrivals.jsx';
-import Home from './Home.jsx'
-import Pants from './Pants.jsx'
+import Home from './Home.jsx';
+import Pants from './Pants.jsx';
+import Tops from './Tops.jsx';
+import Accessories from './Accessories.jsx';
 
 
 
@@ -71,7 +73,7 @@ const App = () => {
       <BrowserRouter>
         <AppContainer>
           <TopBarContainer>
-            <TopBar pages={pages}></TopBar>
+            <TopBar categories={categories}></TopBar>
           </TopBarContainer>
 
 
@@ -81,6 +83,12 @@ const App = () => {
           <Switch>
             <Route path="/Pants">
               <Pants />
+            </Route>
+            <Route path="/Tops">
+              <Tops />
+            </Route>
+            <Route path="/Accessories">
+              <Accessories />
             </Route>
             <Route path="/">
               <Home categories={categories}/>
