@@ -13,6 +13,51 @@ import Accessories from './Accessories.jsx';
 
 
 
+
+const App = () => {
+  
+  const [pages, setPages] = useState([ 'home', 'about', 'tops', 'pants', 'accessories' ])
+  const [categories, setCategories] = useState([]);
+  
+  useEffect(() => {
+    console.log('testing')
+    db.collection('categories').onSnapshot(snapshot => {
+      const catState = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setCategories(catState);
+    });
+  }, [])
+  
+  return (
+    <BrowserRouter>
+        <AppContainer>
+          <TopBarContainer>
+            <TopBar categories={categories}></TopBar>
+          </TopBarContainer>
+
+          <Switch>
+            <Route path="/Pants">
+              <Pants />
+            </Route>
+            <Route path="/Tops">
+              <Tops />
+            </Route>
+            <Route path="/Accessories">
+              <Accessories />
+            </Route>
+            <Route path="/">
+              <Home categories={categories}/>
+            </Route>
+          </Switch>
+        </AppContainer>
+      </BrowserRouter>
+  )
+}
+
+export default App; 
+
 const AppContainer = styled.div`
   background-color: #f0f0f0;
   display: flex;
@@ -52,53 +97,3 @@ const NewArrivalContainer = styled.div`
   text-align: center;
   text: black;
 `
-
-const App = () => {
-
-  const [pages, setPages] = useState([ 'home', 'about', 'tops', 'pants', 'accessories' ])
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    console.log('testing')
-    db.collection('categories').onSnapshot(snapshot => {
-      const catState = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setCategories(catState);
-    });
-  }, [])
-
-  return (
-      <BrowserRouter>
-        <AppContainer>
-          <TopBarContainer>
-            <TopBar categories={categories}></TopBar>
-          </TopBarContainer>
-
-
-
-          {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/Pants">
-              <Pants />
-            </Route>
-            <Route path="/Tops">
-              <Tops />
-            </Route>
-            <Route path="/Accessories">
-              <Accessories />
-            </Route>
-            <Route path="/">
-              <Home categories={categories}/>
-            </Route>
-          </Switch>
-        </AppContainer>
-      </BrowserRouter>
-  )
-}
-
-
-
-export default App; 

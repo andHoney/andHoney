@@ -5,10 +5,6 @@ import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 // import Modal from 'react-modal';
 
-
-
-
-
 const MenuButton = (props) => {
   
   const [show, setShow] = useState(false);
@@ -24,7 +20,7 @@ const MenuButton = (props) => {
   const cats = props.categories.map((cat, i) => {
     return (
       <li key={i}>
-        <Link onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</Link>
+        <StyledLink onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</StyledLink>
       </li>
       )
     })
@@ -42,7 +38,7 @@ const MenuButton = (props) => {
               <nav>
                 <ul>
                   <li>
-                    <Link onClick={closeMenu} to="/">Home</Link>
+                    <StyledLink onClick={closeMenu} to="/">Home</StyledLink>
                   </li>
                   {cats}
                   {/* <li>
@@ -62,6 +58,15 @@ const MenuButton = (props) => {
 }
 
 export default MenuButton;
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+        color: black;
+    }
+`
 
 const MenuStyleContainer = styled.div`
   color: black;

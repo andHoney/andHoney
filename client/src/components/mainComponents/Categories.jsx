@@ -4,16 +4,11 @@ import Category from './Category.jsx'
 
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
-const CategoriesContainer = styled.div`
-  color: black;
-  display: flex;
-  justify-content: center;
-`
 
 
 
 const Categories = (props) => {
-
+  
   const cats = props.categories.map((cat, i) => {
     return (
       <Link to={`/${cat.name}`}>
@@ -21,7 +16,7 @@ const Categories = (props) => {
       </Link>
     )
   })
-
+  
   return (
     <div>
       <h1>{'c a t e g o r i e s'}</h1>
@@ -34,3 +29,9 @@ const Categories = (props) => {
 
 
 export default Categories;
+
+const CategoriesContainer = styled.div`
+  color: black;
+  display: flex;
+  justify-content: center;
+`
