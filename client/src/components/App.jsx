@@ -16,7 +16,6 @@ import Accessories from './Accessories.jsx';
 
 const App = () => {
   
-  const [pages, setPages] = useState([ 'home', 'about', 'tops', 'pants', 'accessories' ])
   const [categories, setCategories] = useState([]);
   
   useEffect(() => {

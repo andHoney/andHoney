@@ -3,13 +3,23 @@ import { Router, Route, Switch } from "react-router-dom";
 
 import styled from 'styled-components';
 
+import ItemBox from './mainComponents/ItemBox.jsx'
+
 
 const Accessories = () => {
-  console.log('pants')
 
   return (
-    <div>Accessories</div>
+    <AccessoriesStyled>
+      <ItemBox></ItemBox>
+      <ItemBox></ItemBox>
+      <ItemBox></ItemBox>
+      <ItemBox></ItemBox>
+    </AccessoriesStyled>
   )
 }
 
 export default Accessories; 
+
+const AccessoriesStyled = styled.div`
+
+`
