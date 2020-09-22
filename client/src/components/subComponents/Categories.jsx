@@ -35,4 +35,12 @@ const CategoriesContainer = styled.div`
   color: black;
   display: flex;
   justify-content: center;
+  background-color: #f0f0f0;
+  text-align: center;
+  text: black;
+  flex-direction: column;
+  height: 50%;
+  width: 100%;
+  min-height: 350px;
+  min-width: 300px;
 `

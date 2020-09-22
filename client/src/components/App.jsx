@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import styled from 'styled-components';
 import TopBar from './subComponents/TopBar.jsx';
-import Categories from './subComponents/Categories.jsx';
-import NewArrivals from './subComponents/NewArrivals.jsx';
 import Home from './Home.jsx';
 import CategoryPage from './CategoryPage.jsx'
 
@@ -25,6 +23,10 @@ const App = () => {
       setCategories(catState);
     });
   }, [])
+
+  // create context for category state
+  // add route for item page
+
   
   return (
     <Router>
@@ -32,7 +34,6 @@ const App = () => {
         <TopBarContainer>
           <TopBar categories={categories}></TopBar>
         </TopBarContainer>
-
         <Switch>
           <Route path="/category" component={CategoryPage} />
           <Route path="/">
@@ -56,12 +57,3 @@ const AppContainer = styled.div`
   z-index: -100;
 `
 
-const TopBarContainer = styled.div`
-  background-color: #c9c1b9;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 50px;
-  min-width: 300px;
-  padding: 25px;
-`

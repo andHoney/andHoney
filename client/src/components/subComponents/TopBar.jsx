@@ -15,10 +15,7 @@ const TopBar = (props) => {
           <h1>{'&  h o n e y'}</h1>
         </StyledLink>
       </TitleContainer>
-
-      <MenuContainer>
-        <MenuButton categories={props.categories}></MenuButton>
-      </MenuContainer>
+      <MenuButton categories={props.categories}></MenuButton>
     </TopBarStyled>
   )
 }
@@ -38,6 +35,13 @@ const TopBarStyled = styled.div`
   color: white;
   display: flex;
   position: relative;
+  background-color: #c9c1b9;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 50px;
+  min-width: 300px;
+  padding: 25px;
 
 `
 
@@ -45,8 +49,3 @@ const TitleContainer = styled.div`
   position: absolute;
   left: 0px;
 ` 
-
-const MenuContainer = styled.div`
-  position: absolute;
-  right: 0px;
-`

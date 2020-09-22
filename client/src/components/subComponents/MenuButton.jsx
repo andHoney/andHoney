@@ -39,10 +39,8 @@ const MenuButton = (props) => {
               //titles
             }
               <nav>
-                <div>
-                  <StyledLink onClick={closeMenu} to="/">home</StyledLink>
-                </div>
-                  {cats}
+                <StyledLink onClick={closeMenu} to="/">home</StyledLink>
+                {cats}
               </nav>
             </MenuText>
           </MenuModal>
@@ -65,6 +63,8 @@ const StyledLink = styled(Link)`
 
 const MenuStyleContainer = styled.div`
   color: black;
+  position: absolute;
+  right: 0px;
 `
 
 const Button = styled.button`
