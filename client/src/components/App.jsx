@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { auth, db } from '../../../firebaseconfig.js'
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import styled from 'styled-components';
-import TopBar from './mainComponents/TopBar.jsx';
-import Categories from './mainComponents/Categories.jsx';
-import NewArrivals from './mainComponents/NewArrivals.jsx';
+import TopBar from './subComponents/TopBar.jsx';
+import Categories from './subComponents/Categories.jsx';
+import NewArrivals from './subComponents/NewArrivals.jsx';
 import Home from './Home.jsx';
-import Pants from './Pants.jsx';
-import Tops from './Tops.jsx';
-import Accessories from './Accessories.jsx';
-
+import CategoryPage from './CategoryPage.jsx'
 
 
 
@@ -30,28 +27,20 @@ const App = () => {
   }, [])
   
   return (
-    <BrowserRouter>
-        <AppContainer>
-          <TopBarContainer>
-            <TopBar categories={categories}></TopBar>
-          </TopBarContainer>
+    <Router>
+      <AppContainer>
+        <TopBarContainer>
+          <TopBar categories={categories}></TopBar>
+        </TopBarContainer>
 
-          <Switch>
-            <Route path="/Pants">
-              <Pants />
-            </Route>
-            <Route path="/Tops">
-              <Tops />
-            </Route>
-            <Route path="/Accessories">
-              <Accessories />
-            </Route>
-            <Route path="/">
-              <Home categories={categories}/>
-            </Route>
-          </Switch>
-        </AppContainer>
-      </BrowserRouter>
+        <Switch>
+          <Route path="/category" component={CategoryPage} />
+          <Route path="/">
+            <Home categories={categories}/>
+          </Route>
+        </Switch>
+      </AppContainer>
+    </Router>
   )
 }
 
@@ -75,24 +64,4 @@ const TopBarContainer = styled.div`
   min-height: 50px;
   min-width: 300px;
   padding: 25px;
-`
-
-const CategoryContainer = styled.div`
-  background-color: #f0f0f0;
-  text-align: center;
-  text: black;
-  display: flex;
-  flex-direction: column;
-  height: 50%;
-  width: 100%;
-  min-height: 350px;
-  min-width: 300px;
-`
-
-const NewArrivalContainer = styled.div`
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  text: black;
 `

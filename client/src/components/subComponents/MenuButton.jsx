@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MenuContent from './MenuContent.jsx';
+
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 // import Modal from 'react-modal';
@@ -19,35 +19,27 @@ const MenuButton = (props) => {
   
   const cats = props.categories.map((cat, i) => {
     return (
-      <li key={i}>
-        <StyledLink onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</StyledLink>
-      </li>
-      )
-    })
+      <div>
+        <StyledLink key={i} onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</StyledLink>
+      </div>
+    )
+  })
     
     
     return (
       <MenuStyleContainer>
       <Button onClick={openMenu}>{'m e n u'}</Button>
       
-      { show && (
+      {show && (
         <MenuModal onClick={closeMenu} >
             <MenuText categories={props.categories}>{
               //titles
             }
               <nav>
-                <ul>
-                  <li>
-                    <StyledLink onClick={closeMenu} to="/">Home</StyledLink>
-                  </li>
+                <div>
+                  <StyledLink onClick={closeMenu} to="/">home</StyledLink>
+                </div>
                   {cats}
-                  {/* <li>
-                    <Link onClick={closeMenu} to="/pants">Pants</Link>
-                  </li>
-                  <li>
-                    <Link onClick={closeMenu} to="/tops">Tops</Link>
-                  </li> */}
-                </ul>
               </nav>
             </MenuText>
           </MenuModal>
@@ -81,25 +73,25 @@ const Button = styled.button`
 
 const MenuModal = styled.div`
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  align-items: center;
-  justify-content: center;
   z-index: 2000;
   width: 100%;
   height: 100%;
   background-color: #f0f0f0;
-  color: black;
   opacity: .88;
 `
 
 const MenuText = styled.div`
+  display: flex;
   color: black;
   font-size: 30px;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `

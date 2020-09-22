@@ -4,14 +4,15 @@ import Category from './Category.jsx'
 
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
-
-
-
 const Categories = (props) => {
   
   const cats = props.categories.map((cat, i) => {
     return (
-      <Link to={`/${cat.name}`}>
+      <Link 
+        to={{
+          pathname: '/category',
+          state: {categoryName: cat.name}
+        }}>
         <Category key={i} name={cat.name} image={cat.img}></Category>
       </Link>
     )

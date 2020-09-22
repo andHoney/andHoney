@@ -1,6 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+
+
+const Category = (props) => {
+  
+  
+  return (
+    <CategoryStyle>
+      <ImgContainer>
+        <img src={props.image} alt="" width="370"/>
+      </ImgContainer>
+      <Title>{props.name}</Title>
+    </CategoryStyle>
+  )
+}
+export default Category;
+
 const Title = styled.div`
   visibility: hidden;
   color: black;
@@ -34,19 +51,3 @@ const CategoryStyle = styled.div`
     cursor: pointer;
   }
 `
-
-
-
-const Category = (props) => {
-
-
-  return (
-    <CategoryStyle>
-      <ImgContainer>
-        <img src={props.image} alt="" width="370"/>
-      </ImgContainer>
-      <Title>{props.name}</Title>
-    </CategoryStyle>
-  )
-}
-export default Category;
