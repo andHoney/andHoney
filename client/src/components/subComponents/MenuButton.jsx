@@ -20,7 +20,10 @@ const MenuButton = (props) => {
   const cats = props.categories.map((cat, i) => {
     return (
       <div>
-        <StyledLink key={i} onClick={closeMenu} to={`/${cat.name}`}>{cat.name}</StyledLink>
+        <StyledLink key={i} onClick={closeMenu} to={{
+          pathname: '/category',
+          state: {categoryName: cat.name}
+        }}>{cat.name}</StyledLink>
       </div>
     )
   })
