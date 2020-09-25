@@ -23,5 +23,7 @@ const CategoryPage = (props) => {
 export default CategoryPage; 
 
 const CategoryStyled = styled.div`
+  text-align: center;
+  justify-content: center;
 
 `

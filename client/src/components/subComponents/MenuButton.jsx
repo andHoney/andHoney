@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-
-// import Modal from 'react-modal';
+import CatContext from '../../Context.jsx';
 
 const MenuButton = (props) => {
-  
   const [show, setShow] = useState(false);
   
   const openMenu = (event) => {
@@ -17,7 +15,9 @@ const MenuButton = (props) => {
     setShow(false);
   }
   
-  const cats = props.categories.map((cat, i) => {
+  let categories = useContext(CatContext)
+
+  const cats = categories.map((cat, i) => {
     return (
       <div>
         <StyledLink key={i} onClick={closeMenu} to={{
@@ -28,24 +28,19 @@ const MenuButton = (props) => {
     )
   })
     
-    
-    return (
-      <MenuStyleContainer>
+  return (
+    <MenuStyleContainer>
       <Button onClick={openMenu}>{'m e n u'}</Button>
-      
-      {show && (
-        <MenuModal onClick={closeMenu} >
-            <MenuText categories={props.categories}>{
-              //titles
-            }
-              <nav>
-                <StyledLink onClick={closeMenu} to="/">home</StyledLink>
-                {cats}
-              </nav>
-            </MenuText>
-          </MenuModal>
-        )}
-
+    {show && (
+      <MenuModal onClick={closeMenu} >
+        <MenuText >
+          <nav>
+            <StyledLink onClick={closeMenu} to="/">home</StyledLink>
+            {cats}
+          </nav>
+        </MenuText>
+      </MenuModal>
+    )}
     </MenuStyleContainer>
   )
 }
@@ -64,7 +59,7 @@ const StyledLink = styled(Link)`
 const MenuStyleContainer = styled.div`
   color: black;
   position: absolute;
-  right: 0px;
+  right: 30px;
 `
 
 const Button = styled.button`

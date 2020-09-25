@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { auth, db } from '../../../firebaseconfig.js'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import styled from 'styled-components';
 import TopBar from './subComponents/TopBar.jsx';
 import Home from './Home.jsx';
-import CategoryPage from './CategoryPage.jsx'
+import CategoryPage from './CategoryPage.jsx';
+import CatContext from '../Context.jsx';
 
 
 
 const App = () => {
-  
   const [categories, setCategories] = useState([]);
   
   useEffect(() => {
@@ -24,24 +24,22 @@ const App = () => {
     });
   }, [])
 
-  // create context for category state
   // add route for item page
-
   
   return (
-    <Router>
-      <AppContainer>
-        <TopBarContainer>
-          <TopBar categories={categories}></TopBar>
-        </TopBarContainer>
-        <Switch>
-          <Route path="/category" component={CategoryPage} />
-          <Route path="/">
-            <Home categories={categories}/>
-          </Route>
-        </Switch>
-      </AppContainer>
-    </Router>
+    <CatContext.Provider value={categories}>
+      <Router>
+        <AppContainer>
+          <TopBar />
+          <Switch>
+            <Route path="/category" component={CategoryPage} />
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </AppContainer>
+      </Router>
+    </CatContext.Provider>
   )
 }
 

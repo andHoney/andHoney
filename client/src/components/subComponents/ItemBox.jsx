@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 
 const ItemBox = (props) => {
-
   return (
     <ItemBoxStyled>
       <div>item</div>

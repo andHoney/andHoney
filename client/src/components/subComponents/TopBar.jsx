@@ -15,7 +15,7 @@ const TopBar = (props) => {
           <h1>{'&  h o n e y'}</h1>
         </StyledLink>
       </TitleContainer>
-      <MenuButton categories={props.categories}></MenuButton>
+      <MenuButton ></MenuButton>
     </TopBarStyled>
   )
 }
@@ -24,7 +24,7 @@ export default TopBar;
 
 const StyledLink = styled(Link)`
     text-decoration: none;
-
+    
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
         color: white;
@@ -47,5 +47,5 @@ const TopBarStyled = styled.div`
 
 const TitleContainer = styled.div`
   position: absolute;
-  left: 0px;
+  left: 30px;
 ` 

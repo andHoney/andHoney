@@ -5,8 +5,6 @@ import styled from 'styled-components';
 
 
 const Category = (props) => {
-  
-  
   return (
     <CategoryStyle>
       <ImgContainer>

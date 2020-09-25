@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Category from './Category.jsx'
 
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import CatContext from '../../Context.jsx';
+
 
 const Categories = (props) => {
-  
-  const cats = props.categories.map((cat, i) => {
+
+  let categories = useContext(CatContext);
+  const cats = categories.map((cat, i) => {
     return (
       <Link 
         to={{
@@ -19,12 +22,12 @@ const Categories = (props) => {
   })
   
   return (
-    <div>
-      <h1>{'c a t e g o r i e s'}</h1>
       <CategoriesContainer>
-        {cats}
+      <h1>{'c a t e g o r i e s'}</h1>
+        <CategoryImgs>
+          {cats}
+        </CategoryImgs>
       </CategoriesContainer>
-    </div>
   )
 }
 
@@ -43,4 +46,10 @@ const CategoriesContainer = styled.div`
   width: 100%;
   min-height: 350px;
   min-width: 300px;
+`
+
+const CategoryImgs = styled.div`
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center;
 `
