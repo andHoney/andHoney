@@ -5,9 +5,11 @@ import styled from 'styled-components';
 
 
 const ItemBox = (props) => {
+
+  console.log(props.itemData.images[0])
   return (
     <ItemBoxStyled>
-      <div>item</div>
+      <img src={props.itemData.images[0]} width="370"/>
     </ItemBoxStyled>
   )
 }
@@ -15,6 +17,6 @@ const ItemBox = (props) => {
 export default ItemBox;
 
 const ItemBoxStyled = styled.div`
-  width: 350px;
   border: 5px;
+  margin: 5px;
 `

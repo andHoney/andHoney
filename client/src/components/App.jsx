@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { auth, db } from '../../../firebaseconfig.js'
+import { db } from '../../../firebaseconfig.js'
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import styled from 'styled-components';
